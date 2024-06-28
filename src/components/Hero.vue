@@ -1,7 +1,7 @@
 <template>
     <section class="flex flex-col lg:flex-row justify-start gap-y-10 lg:gap-y-0 items-center w-full lg:h-full">
         <div class="flex-col flex justify-center h-full lg:pt-40 pt-24 md:pt-28 max-w-7xl w-full mx-auto items-start">
-            <div class="flex-col px-10 md:16 lg:px-24 xl:px-0 flex justify-center max-w-4xl lg:gap-y-10 gap-y-5 lg:items-start items-center">
+            <div ref="heroLeft" class="flex-col px-10 md:16 lg:px-24 xl:px-0 flex justify-center max-w-4xl lg:gap-y-10 gap-y-5 lg:items-start items-center">
                 <p class="text-white text-4xl lg:text-7xl text-center lg:text-start xl:text-[110px] leading-none" style="font-family: 'Monument Extended Ultrabold';">Create Your Own NFT Dream Gallery</p>
                 <div class="flex flex-col-reverse lg:flex-row justify-center lg:gap-x-10 gap-y-5 items-center">
                     <div class="flex flex-col bg-blue-700 w-full lg:w-auto lg:px-3 lg:py-7 px-1 py-5 justify-center rounded-full items-center">
@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="lg:absolute pb-20 lg:pb-0 relative flex w-full h-full lg:justify-end justify-center lg:items-center items-end -z-10">
-            <div class="flex w-3/5 justify-center items-center z-10">
+            <div ref="heroRight" class="flex w-3/5 justify-center items-center z-10">
                 <img src="/statue.png" alt="" class="lg:absolute relative z-10 w-auto h-[500px] object-top object-cover">
                 <img src="/bg-1.png" alt="" class="absolute lg:ml-12 z-0 w-auto h-[430px] object-top object-cover">
                 <img src="/bg-2.png" alt="" class="absolute lg:ml-64 -z-10 w-auto h-[330px] object-top object-cover">
@@ -30,12 +30,64 @@
         </div>
     </section>
     <div class="relative lg:flex w-full hidden h-full justify-between items-start z-10">
-        <img src="/bottom-left.png" alt="" class="relative -ml-20 w-1/3 h-48 object-top object-cover">
-        <img src="/bottom-right.png" alt="" class="relative -mt-32 w-1/2 h-80 object-top object-cover">
+        <img ref="bottomLeft" src="/bottom-left.png" alt="" class="relative -ml-20 w-1/3 h-48 object-top object-cover">
+        <img ref="bottomRight"src="/bottom-right.png" alt="" class="relative -mt-32 w-1/2 h-80 object-top object-cover">
     </div>
 </template>
 
 <script setup>
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { onMounted, ref } from 'vue';
+
+const heroLeft = ref(null)
+const heroRight = ref(null)
+const bottomLeft = ref(null)
+const bottomRight = ref(null)
+
+gsap.registerPlugin(ScrollTrigger)
+
+const animateOnDekstop = () => {
+    heroLeft.value.childNodes.forEach(child => {
+        gsap.fromTo(child, {opacity: 0 }, {opacity: 1, duration: 1.5, stagger: 0.3, delay: 0.2, ease: 'power3.out',})
+    })
+    heroRight.value.childNodes.forEach(child => {
+        gsap.fromTo(child, {opacity: 0, x: 50 }, {opacity: 1, x:0, duration: 1.5, stagger: 0.3, delay: 0.2, ease: 'power3.out',})
+    })
+    gsap.fromTo(bottomLeft.value, {opacity: 0, x: -100 }, {opacity: 1, x:0, duration: 1.5, stagger: 0.3, delay: 0.2, ease: 'power3.out', scrollTrigger: {
+        trigger: bottomLeft.value,
+        start: "top bottom",
+        end: "center center"
+    }})
+    gsap.fromTo(bottomRight.value, {opacity: 0, x: 100 }, {opacity: 1, x:0, duration: 1.5, stagger: 0.3, delay: 0.2, ease: 'power3.out', scrollTrigger: {
+        trigger: bottomRight.value,
+        start: "top bottom",
+        end: "center center"
+    }})
+}
+
+const animateOnMobile = () => {
+    heroLeft.value.childNodes.forEach(child => {
+        gsap.fromTo(child, {opacity: 0 }, {opacity: 1, duration: 1.5, stagger: 0.3, delay: 0.2, ease: 'power3.out',})
+    })
+    heroRight.value.childNodes.forEach(child => {
+        gsap.fromTo(child, {opacity: 0, y: 50 }, {opacity: 1, y:0, duration: 1.5, stagger: 0.3, delay: 0.2, ease: 'power3.out', scrollTrigger: {
+            trigger: child,
+            start: "top bottom",
+            end: "center center"
+        }})
+    })
+    gsap.fromTo(bottomLeft.value, {opacity: 0, x: -100 }, {opacity: 1, x:0, duration: 1.5, stagger: 0.3, delay: 0.2, ease: 'power3.out', scrollTrigger: {
+        trigger: bottomLeft.value,
+        start: "top bottom",
+        end: "center center"
+    }})
+    gsap.fromTo(bottomRight.value, {opacity: 0, x: 100 }, {opacity: 1, x:0, duration: 1.5, stagger: 0.3, delay: 0.2, ease: 'power3.out', scrollTrigger: {
+        trigger: bottomRight.value,
+        start: "top bottom",
+        end: "center center"
+    }})
+}
 
 const DataHero = [
     {
@@ -50,6 +102,12 @@ const DataHero = [
         name: "Auciton",
         points: "10.5+ K"
     },
-]
+];
+
+const isDekstop = window.matchMedia("(min-width: 1024px)").matches
+
+onMounted(() => {
+    isDekstop ? animateOnDekstop() : animateOnMobile()
+})
 
 </script>
