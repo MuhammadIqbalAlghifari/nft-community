@@ -1,35 +1,35 @@
-<template >
-    <section class="flex justify-start items-center w-full h-full">
-        <div class="flex-col flex justify-center h-full pt-40 max-w-7xl w-full mx-auto items-start">
-            <div class="flex-col flex justify-center max-w-4xl gap-y-10 items-start">
-                <p class="text-white text-[110px] leading-none" style="font-family: 'Monument Extended Ultrabold';">Create Your Own NFT Dream Gallery</p>
-                <div class="flex justify-center gap-x-10 items-center">
-                    <div class="flex flex-col bg-blue-700 px-3 py-7 justify-center rounded-full items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10 text-white">
+<template>
+    <section class="flex flex-col lg:flex-row justify-start gap-y-10 lg:gap-y-0 items-center w-full lg:h-full">
+        <div class="flex-col flex justify-center h-full lg:pt-40 pt-24 md:pt-28 max-w-7xl w-full mx-auto items-start">
+            <div class="flex-col px-10 md:16 lg:px-24 xl:px-0 flex justify-center max-w-4xl lg:gap-y-10 gap-y-5 lg:items-start items-center">
+                <p class="text-white text-4xl lg:text-7xl text-center lg:text-start xl:text-[110px] leading-none" style="font-family: 'Monument Extended Ultrabold';">Create Your Own NFT Dream Gallery</p>
+                <div class="flex flex-col-reverse lg:flex-row justify-center lg:gap-x-10 gap-y-5 items-center">
+                    <div class="flex flex-col bg-blue-700 w-full lg:w-auto lg:px-3 lg:py-7 px-1 py-5 justify-center rounded-full items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="lg:size-10 size-5 text-white">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
                         </svg>
                         <p class="text-white text-xs font-light">Discover NFT</p>
                     </div>
-                    <p class="text-gray-400 text-sm max-w-lg">The largest nft maretplace. Authentic and truly unique digital creation. Signed and issued by the creator, made possible by blockchain technology</p>
+                    <p class="text-gray-400 lg:text-sm lg:text-start text-center text-xs max-w-lg">The largest nft maretplace. Authentic and truly unique digital creation. Signed and issued by the creator, made possible by blockchain technology</p>
                 </div>
-                <div class="flex justify-start items-center gap-x-10">
+                <div class="flex lg:justify-start justify-center items-center lg:gap-x-10 gap-x-5">
                     <div class="flex-col text-white flex justify-center gap-y-2 items-start" v-for="(item, index) in DataHero" :key="index">
-                        <p class="text-gray-400 text-base">{{ item.name }}</p>
-                        <p class="text-white text-2xl" style="font-family: 'Monument Extended Regular';">{{ item.points }}</p>
+                        <p class="text-gray-400 lg:text-base text-sm">{{ item.name }}</p>
+                        <p class="text-white lg:text-2xl text-lg" style="font-family: 'Monument Extended Regular';">{{ item.points }}</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="absolute flex w-full h-full justify-end items-center -z-10">
+        <div class="lg:absolute pb-20 lg:pb-0 relative flex w-full h-full lg:justify-end justify-center lg:items-center items-end -z-10">
             <div class="flex w-3/5 justify-center items-center z-10">
-                <img src="/statue.png" alt="" class="absolute z-10 w-auto h-[500px] object-top object-cover">
-                <img src="/bg-1.png" alt="" class="absolute ml-12 z-0 w-auto h-[430px] object-top object-cover">
-                <img src="/bg-2.png" alt="" class="absolute ml-64 -z-10 w-auto h-[330px] object-top object-cover">
+                <img src="/statue.png" alt="" class="lg:absolute relative z-10 w-auto h-[500px] object-top object-cover">
+                <img src="/bg-1.png" alt="" class="absolute lg:ml-12 z-0 w-auto h-[430px] object-top object-cover">
+                <img src="/bg-2.png" alt="" class="absolute lg:ml-64 -z-10 w-auto h-[330px] object-top object-cover">
             </div>
-            <img src="/line.png" alt="" class="absolute -z-10 w-auto h-auto">
+            <img src="/line.png" alt="" class="absolute lg:flex -z-10 w-auto h-auto hidden">
         </div>
     </section>
-    <div class="relative flex w-full h-full justify-between items-start z-50">
+    <div class="relative lg:flex w-full hidden h-full justify-between items-start z-10">
         <img src="/bottom-left.png" alt="" class="relative -ml-20 w-1/3 h-48 object-top object-cover">
         <img src="/bottom-right.png" alt="" class="relative -mt-32 w-1/2 h-80 object-top object-cover">
     </div>

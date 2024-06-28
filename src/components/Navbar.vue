@@ -2,7 +2,7 @@
     <header ref="navbarRef" class="fixed z-50 w-full">
       <nav class="flex max-w-7xl mx-auto md:py-7 p-5 justify-between items-center w-full text-white">
         <MobileNav :open="open" @set-open="setOpen" />
-        <div class="justify-between w-1/3 flex items-center">
+        <div class="justify-between hidden w-1/3 md:flex items-center">
             <p class="transition-all duration-300 text-sm text-white">Drop</p>
             <p class="transition-all duration-300 text-sm text-white">Marketplace</p>
             <p class="transition-all duration-300 text-sm text-white">Creator</p>
