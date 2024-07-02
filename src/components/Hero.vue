@@ -13,18 +13,18 @@
                     <p class="text-gray-400 lg:text-sm lg:text-start text-center text-xs max-w-lg">The largest nft maretplace. Authentic and truly unique digital creation. Signed and issued by the creator, made possible by blockchain technology</p>
                 </div>
                 <div class="flex lg:justify-start justify-center items-center lg:gap-x-10 gap-x-5">
-                    <div class="flex-col text-white flex justify-center gap-y-2 items-start" v-for="(item, index) in DataHero" :key="index">
-                        <p class="text-gray-400 lg:text-base text-sm">{{ item.name }}</p>
-                        <p class="text-white lg:text-2xl text-lg" style="font-family: 'Monument Extended Regular';">{{ item.points }}</p>
+                    <div class="flex-col text-white flex justify-center gap-y-2 lg:items-start items-center" v-for="(item, index) in DataHero" :key="index">
+                        <p class="text-gray-400 lg:text-base text-center lg:text-start text-xs">{{ item.name }}</p>
+                        <p class="text-white lg:text-2xl text-base text-center lg:text-start" style="font-family: 'Monument Extended Regular';">{{ item.points }}</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="lg:absolute pb-20 lg:pb-0 relative flex w-full h-full lg:justify-end justify-center lg:items-center items-end -z-10">
-            <div ref="heroRight" class="flex w-3/5 px-10 sm:px-0 justify-center items-center z-10">
-                <img src="/statue.png" alt="" class="lg:absolute relative z-10 w-auto h-[500px] object-top object-cover">
-                <img src="/bg-1.png" alt="" class="absolute lg:ml-12 z-0 w-auto h-[430px] object-top object-cover">
-                <img src="/bg-2.png" alt="" class="absolute lg:ml-64 -z-10 w-auto h-[330px] object-top object-cover">
+            <div ref="heroRight" class="flex lg:w-3/5 w-full justify-center items-center z-10">
+                <img src="/statue.png" alt="" class="lg:absolute px-6 sm:px-0 relative z-10 w-auto h-[500px] object-top object-cover">
+                <img src="/bg-1.png" alt="" class="absolute lg:ml-12 px-4 sm:px-0 z-0 w-auto h-[430px] object-top object-cover">
+                <img src="/bg-2.png" alt="" class="absolute lg:ml-64 px-2 sm:px-0 -z-10 w-auto h-[330px] object-top object-cover">
             </div>
             <img src="/line.png" alt="" class="absolute lg:flex -z-10 w-auto h-auto hidden">
         </div>
