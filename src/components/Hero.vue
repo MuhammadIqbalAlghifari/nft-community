@@ -48,12 +48,16 @@ const bottomRight = ref(null)
 gsap.registerPlugin(ScrollTrigger)
 
 const animateOnDekstop = () => {
-    heroLeft.value.childNodes.forEach(child => {
-        gsap.fromTo(child, {opacity: 0 }, {opacity: 1, duration: 1.5, stagger: 0.3, delay: 0.2, ease: 'power3.out',})
-    })
-    heroRight.value.childNodes.forEach(child => {
-        gsap.fromTo(child, {opacity: 0, x: 50 }, {opacity: 1, x:0, duration: 1.5, stagger: 0.3, delay: 0.2, ease: 'power3.out',})
-    })
+    gsap.fromTo(heroLeft.value.children, {opacity: 0 }, {opacity: 1, duration: 1.5, stagger: 0.3, delay: 0.2, ease: 'power3.out', scrollTrigger: {
+        trigger: heroLeft.value.children,
+        start: "top bottom",
+        end: "center center"
+    }})
+    gsap.fromTo(heroRight.value.children, {opacity: 0, x: 50 }, {opacity: 1, x:0, duration: 1.5, stagger: 0.3, delay: 0.2, ease: 'power3.out', scrollTrigger: {
+        trigger: heroRight.value.children,
+        start: "top bottom",
+        end: "center center"
+    }})
     gsap.fromTo(bottomLeft.value, {opacity: 0, x: -100 }, {opacity: 1, x:0, duration: 1.5, stagger: 0.3, delay: 0.2, ease: 'power3.out', scrollTrigger: {
         trigger: bottomLeft.value,
         start: "top bottom",
@@ -67,16 +71,16 @@ const animateOnDekstop = () => {
 }
 
 const animateOnMobile = () => {
-    heroLeft.value.childNodes.forEach(child => {
-        gsap.fromTo(child, {opacity: 0 }, {opacity: 1, duration: 1.5, stagger: 0.3, delay: 0.2, ease: 'power3.out',})
-    })
-    heroRight.value.childNodes.forEach(child => {
-        gsap.fromTo(child, {opacity: 0, y: 50 }, {opacity: 1, y:0, duration: 1.5, stagger: 0.3, delay: 0.2, ease: 'power3.out', scrollTrigger: {
-            trigger: child,
-            start: "top bottom",
-            end: "center center"
-        }})
-    })
+    gsap.fromTo(heroLeft.value.children, {opacity: 0 }, {opacity: 1, duration: 1.5, stagger: 0.3, delay: 0.2, ease: 'power3.out', scrollTrigger: {
+        trigger: heroLeft.value.children,
+        start: "top bottom",
+        end: "center center"
+    }})
+    gsap.fromTo(heroRight.value.children, {opacity: 0, y: 50 }, {opacity: 1, y:0, duration: 1.5, stagger: 0.3, delay: 0.2, ease: 'power3.out', scrollTrigger: {
+        trigger: heroRight.value.children,
+        start: "top bottom",
+        end: "center center"
+    }})
     gsap.fromTo(bottomLeft.value, {opacity: 0, x: -100 }, {opacity: 1, x:0, duration: 1.5, stagger: 0.3, delay: 0.2, ease: 'power3.out', scrollTrigger: {
         trigger: bottomLeft.value,
         start: "top bottom",
