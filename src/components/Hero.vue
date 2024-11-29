@@ -29,9 +29,9 @@
             <img src="/line.png" alt="" class="absolute lg:flex -z-10 w-auto h-auto hidden">
         </div>
     </section>
-    <div class="relative lg:flex w-full hidden h-full justify-between items-start z-10">
-        <img ref="bottomLeft" src="/bottom-left.png" alt="" class="relative -ml-20 w-1/3 h-48 object-top object-cover">
-        <img ref="bottomRight"src="/bottom-right.png" alt="" class="relative -mt-32 w-1/2 h-80 object-top object-cover">
+    <div class="relative lg:flex w-full hidden overflow-hidden h-56 justify-between items-start z-10">
+        <img ref="bottomLeft" src="/bottom-left.png" alt="" class="relative -ml-20 w-1/3 h-full object-top object-cover">
+        <img ref="bottomRight"src="/bottom-right.png" alt="" class="relative w-1/2 h-full object-top object-cover">
     </div>
 </template>
 
